@@ -45,7 +45,7 @@ ext_modules = [
         name='deepspeed_lamb_cuda',
         sources=['csrc/lamb/fused_lamb_cuda.cpp',
                  'csrc/lamb/fused_lamb_cuda_kernel.cu'],
-        include_dirs=['csrc/includes'],
+        include_dirs=[os.path.join(os.path.abspath(os.path.dirname(__file__)), 'csrc', 'includes')],
         extra_compile_args={
             'cxx': [
                 '-O3',
@@ -64,7 +64,7 @@ ext_modules = [
                       'csrc/transformer/softmax_kernels.cu',
                       'csrc/transformer/general_kernels.cu'
                   ],
-                  include_dirs=['csrc/includes'],
+                  include_dirs=[os.path.join(os.path.abspath(os.path.dirname(__file__)), 'csrc', 'includes')],
                   extra_compile_args={
                       'cxx': ['-O3',
                               '-std=c++14',
@@ -94,7 +94,7 @@ ext_modules = [
                       'csrc/transformer/softmax_kernels.cu',
                       'csrc/transformer/general_kernels.cu'
                   ],
-                  include_dirs=['csrc/includes'],
+                  include_dirs=[os.path.join(os.path.abspath(os.path.dirname(__file__)), 'csrc', 'includes')],
                   extra_compile_args={
                       'cxx': ['-O3',
                               '-std=c++14',
